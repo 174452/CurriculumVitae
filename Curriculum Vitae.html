@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículum Vitae</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('xbox2.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .container {
+            width: 80%;
+            max-width: 800px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-top: 50px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        img {
+            width: 150px;
+            border-radius: 50%;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .portfolio {
+            display: none;
+        }
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+        .portfolio-item {
+            text-align: center;
+        }
+        .portfolio-item img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .portfolio-item p {
+            margin-top: 5px;
+            font-size: 14px;
+            color: #555;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal img {
+            width: 70%;
+            height: 70%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+        .modal-description {
+            margin-top: 20px;
+            color: white;
+            font-size: 16px;
+            max-width: 750px;
+            text-align: center;
+        }
+        .biography {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f7f7f7;
+            border-radius: 8px;
+        }
+        .biography h2 {
+            color: #333;
+        }
+        .biography p {
+            color: #555;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Currículum Profesional</h1>
+        <img src="mi foto.jpeg" alt="Foto de perfil">
+        
+        <div class="section">
+            <h2>Datos </h2>
+            <p>Nombre: Luis Fernando Zamudio Carrillo</p>
+            <p>Edad: 23 años</p>
+            <p>Profesión: Ingeniero en Diseño Multimedia</p>
+        </div>
+
+        <!-- Sección de Biografía -->
+        <div class="biography">
+            <h2>Biografía</h2>
+            <p>Soy un diseñador empezando mi carrera con cosas aun por aprender. Mi pasión por el diseño me ha llevado a explorar diversas áreas como el diseño web, branding, y la creación de materiales promocionales. Me considero una persona creativa, con un enfoque en la calidad y la innovación, siempre buscando formas de mejorar y adaptarme a las tendencias del mercado.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Estudios</h2>
+            <p>Ingenieria en Diseño Multimedia - Universidad UNACAR</p>
+        </div>
+        
+        <div class="section">
+            <h2>Idiomas</h2>
+            <p>Español, Inglés, Japones</p>
+        </div>
+        
+        <div class="section">
+            <h2>Contacto</h2>
+            <p>Email: luisfernandozamudiocarrillo@gmail.com</p>
+            <p>Teléfono: +52-938-159-1316</p>
+	    <p>Ubicaion: Ciudad del Carmen, Campeche, México</p>
+        </div>
+        
+        <button onclick="mostrarPortafolio()">VER PORTAFOLIO</button>
+        
+        <div class="portfolio" id="portfolio">
+            <h2>Portafolio</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item" onclick="abrirImagen('CJ Blanco.png', ' Este logotipo fue proyecto para un emprea local de venta de zapatos para damas, el misión principal era crear un logotipo elegante,  minimalista y memorable.')">
+                    <img src="CJ Blanco.png" alt="Proyecto 1">
+                    <p>Diseño de logotipo</p>
+                </div>
+                <div class="portfolio-item" onclick="abrirImagen('proyecto5.png', 'Este cartel de concientización fue uno de mis proyecto de modelado3D II, el objetico era enviar un mensaje de conciencia, mis inicios en la modelacion de personajes.')">
+                    <img src="proyecto5.png" alt="Proyecto 2">
+                    <p>Cartel Concientización</p>
+                </div>
+                <div class="portfolio-item" onclick="abrirImagen('proyecto3.png', 'Mi primer modelo en 3D, este fue un proyecto en mi clase de modelado3D, la gracia era recrear algun personaje famoso y hacerlo en 3D.')">
+                    <img src="proyecto3.png" alt="Proyecto 3">
+                    <p>Modelo de Personaje 3D</p>
+                </div>
+                <div class="portfolio-item" onclick="abrirImagen('proyecto1.jpeg', 'Este proyecto fue un dibujo creado en base a un peluche de la vida real, teniamos que usar una aplicion para crearlo en digital con un estilo a escoger y tratar de asemejarlo lo mas posible a la realidad.')">
+                    <img src="proyecto1.jpeg" alt="Proyecto 4">
+                    <p>Dibujo Objeto</p>
+                </div>
+                <div class="portfolio-item" onclick="abrirImagen('logo.png', 'Un proyecto con el objetico de crear un logitipo personal, la mision era representar los gustos, habilidades y peronaliad lo mejor posible, en un logotipo que definiera quien soy.')">
+                    <img src="logo.png" alt="Proyecto 5">
+                    <p>Logotipo Personal</p>
+                </div>
+                <div class="portfolio-item" onclick="abrirImagen('Cartel.png', 'Este proyecto fue escoger una fotograia y crear un poster con ella, la misión del proyecto era comprender la composicion de las fotografias y los diseños de los posters en conjunto.')">
+                    <img src="Cartel.png" alt="Proyecto 6">
+                    <p>Poster Fotografia</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal" id="modal">
+        <span class="modal-close" onclick="cerrarImagen()">&times;</span>
+        <img id="modal-img" src="">
+        <div class="modal-description" id="modal-description"></div>
+    </div>
+    
+    <script>
+        function mostrarPortafolio() {
+            var portfolio = document.getElementById("portfolio");
+            if (portfolio.style.display === "none" || portfolio.style.display === "") {
+                portfolio.style.display = "block";
+            } else {
+                portfolio.style.display = "none";
+            }
+        }
+
+        function abrirImagen(src, descripcion) {
+            document.getElementById("modal-img").src = src;
+            document.getElementById("modal-description").textContent = descripcion;
+            document.getElementById("modal").style.display = "flex";
+        }
+
+        function cerrarImagen() {
+            document.getElementById("modal").style.display = "none";
+        }
+    </script>
+</body>
+</html>
+
